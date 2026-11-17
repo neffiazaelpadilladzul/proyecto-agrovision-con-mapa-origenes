@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoAgro Sustentable — Plataforma de Gestión Económica</title>
+  <link rel="icon" type="image/png" href="logo2.1.png">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-logo">
+          <img src="logo2.1.png" alt="Logo Oficial" class="sidebar-logo-img">
+        </div>
+
+        <nav aria-label="Menú principal">
+          <ul class="sidebar-nav">
+            <li>
+              <button type="button" class="nav-link-btn active" data-target="dashboard">
+                <span class="nav-icon">📊</span> Dashboard
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="agricultura">
+                <span class="nav-icon">🌾</span> Agricultura
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="ganaderia">
+                <span class="nav-icon">🐄</span> Ganadería
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="comercio">
+                <span class="nav-icon">🏪</span> Comercio
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="industria">
+                <span class="nav-icon">🏭</span> Industria
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="servicios">
+                <span class="nav-icon">🛎️</span> Servicios
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="artesanal">
+                <span class="nav-icon">🧵</span> Producción Artesanal
+              </button>
+            </li>
+            <li>
+              <button type="button" class="nav-link-btn" data-target="pib">
+                <span class="nav-icon">📈</span> Macroeconomía & PIB
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">🌾</div>
+        <div class="promo-title">Gestiona y analiza actividades sustentables comunitarias</div>
+        <button type="button" class="btn-sidebar-action" id="btn-abrir-modal-actividad">
+          <span>+</span> Registrar Actividad
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+
+      <header class="topbar">
+        <div class="search-pill">
+          <span style="color: var(--color-muted);">🔍</span>
+          <input type="text" id="topbar-search-input" placeholder="Buscar actividad, cultivo o producto...">
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" class="btn-icon-top" aria-label="Notificaciones">
+            <span>🔔</span>
+            <span class="topbar-badge-count">2</span>
+          </button>
+          <div class="user-profile">
+            <div class="user-avatar">👨‍🌾</div>
+            <div>
+              <div style="font-size: 0.88rem; font-weight: 700; color: var(--color-forest);">Equipo Sustentable</div>
+              <div style="font-size: 0.72rem; color: var(--color-muted); font-weight: 600;">Gestor Económico</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+
+        <section id="view-dashboard" class="section-view active">
+          <div class="greeting-row">
+            <div class="greeting-sub">Bienvenido,</div>
+            <h1 class="greeting-title">Panel de Gestión Económica Sustentable</h1>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="app-card">
+              <div class="app-card-header">
+                <h2 class="app-card-title">Actividad de Crecimiento y Producción Sustentable</h2>
+                <select class="pill-select" aria-label="Intervalo">
+                  <option>Ciclo Semanal</option>
+                  <option>Ciclo Mensual</option>
+                </select>
+              </div>
+
+              <div class="wave-graph-box">
+                <canvas id="dash-canvas-wave" style="width: 100%; height: 180px;"></canvas>
+                <div class="stages-row">
+                  <div class="stage-step">
+                    <div class="stage-circle">🌱</div>
+                    <div class="stage-name">Fase de Siembra</div>
+                    <div class="stage-sub">Semana 1</div>
+                  </div>
+                  <div class="stage-step">
+                    <div class="stage-circle">🌿</div>
+                    <div class="stage-name">Vegetación</div>
+                    <div class="stage-sub">Semana 2</div>
+                  </div>
+                  <div class="stage-step">
+                    <div class="stage-circle">🌾</div>
+                    <div class="stage-name">Cosecha y Venta</div>
+                    <div class="stage-sub">Semana 3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="metric-pill-card metric-pill-green">
+                <div class="metric-pill-left">
+                  <div class="metric-circle-icon">🌱</div>
+                  <div>
+                    <div class="metric-label-sm">Rendimiento Cosecha</div>
+                    <div class="metric-val-lg">4.3 ton/ha</div>
+                  </div>
+                </div>
+                <div style="font-weight: 800; color: var(--color-forest); font-size: 1.2rem;">•••</div>
+              </div>
+
+              <div class="metric-pill-card">
+                <div class="metric-pill-left">
+                  <div class="metric-circle-icon">💧</div>
+                  <div>
+                    <div class="metric-label-sm">Eficiencia Hídrica</div>
+                    <div class="metric-val-lg">92%</div>
+                  </div>
+                </div>
+                <div style="font-weight: 800; color: var(--color-muted); font-size: 1.2rem;">•••</div>
+              </div>
+
+              <div class="metric-pill-card">
+                <div class="metric-pill-left">
+                  <div class="metric-circle-icon">⏳</div>
+                  <div>
+                    <div class="metric-label-sm">Rotación de Suelos</div>
+                    <div class="metric-val-lg">3 Semanas</div>
+                  </div>
+                </div>
+                <div style="font-weight: 800; color: var(--color-muted); font-size: 1.2rem;">•••</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-bottom-grid">
+            <div class="app-card">
+              <div class="app-card-header">
+                <div>
+                  <h2 class="app-card-title">Detalles de Producción</h2>
+                  <div style="font-size: 0.78rem; color: var(--color-muted);">Comparativa de rendimiento en el periodo agrícola</div>
+                </div>
+                <button type="button" class="btn-export-pill">
+                  <span>↗</span> Exportar Reporte
+                </button>
+              </div>
+
+              <div style="width: 100%; height: 210px; margin-top: 0.5rem;">
+                <canvas id="dash-canvas-bars" style="width: 100%; height: 100%;"></canvas>
+              </div>
+            </div>
+
+            <div class="gauge-dark-card">
+              <div style="width: 100%;">
+                <div class="gauge-container">
+                  <canvas id="dash-canvas-gauge" style="width: 100%; height: 100%;"></canvas>
+                  <div class="gauge-inner-text">
+                    <div class="gauge-pct">74%</div>
+                    <div class="gauge-sub">Índice Global</div>
+                  </div>
+                </div>
+                <div class="gauge-footer-title">Balance y Estadísticas de Sustentabilidad</div>
+                <p class="gauge-footer-desc">
+                  Optimización de recursos y valor agregado retenido en la economía comunitaria.
+                </p>
+              </div>
+              <button type="button" class="btn-card-white" data-goto="pib">Ver Balance Macroeconómico</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-agricultura" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Productivo Primario</div>
+            <h1 class="greeting-title">Agricultura Sustentable y Seguridad Alimentaria</h1>
+          </div>
+
+          <div id="agr-error-box" class="status-callout status-callout-deficit" style="display: none;"></div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <h3 class="app-card-title" style="margin-bottom: 1.5rem;">Balance de Cosecha, Oferta y Demanda Agrícola</h3>
+
+            <div class="interactive-two-cols">
+              <div>
+                <div class="field-group">
+                  <label for="agr-input-oferta" class="field-label">Volumen Ofertado de Cosecha (Toneladas):</label>
+                  <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <input type="range" id="agr-slider-oferta" class="pill-slider" min="20" max="300" step="5" value="120">
+                    <input type="number" id="agr-input-oferta" class="field-input" style="width: 100px; font-weight: 800;" value="120">
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="agr-input-demanda" class="field-label">Demanda Alimentaria Requerida (Toneladas):</label>
+                  <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <input type="range" id="agr-slider-demanda" class="pill-slider" min="20" max="300" step="5" value="120">
+                    <input type="number" id="agr-input-demanda" class="field-input" style="width: 100px; font-weight: 800;" value="120">
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="agr-input-precio-base" class="field-label">Costo Base de Producción Limpia (MXN/ton):</label>
+                  <input type="number" id="agr-input-precio-base" class="field-input" value="45.00">
+                </div>
+              </div>
+
+              <div>
+                <div id="agr-callout-estado" class="status-callout status-callout-eq">
+                  <span>⚖️</span> Mercado Agrícola en Equilibrio Operativo
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="background: var(--bg-app); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">PRECIO EN VIVO</div>
+                    <div id="agr-precio-mercado" style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest);">$45.00 MXN</div>
+                  </div>
+                  <div style="background: var(--bg-app); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">DIFERENCIA</div>
+                    <div id="agr-brecha-mercado" style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest);">0 toneladas</div>
+                  </div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem;">
+                  <canvas id="agr-canvas-curvas" style="width: 100%; height: 200px;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div id="agr-analisis-texto" style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-dark); border-top: 1px solid var(--color-border); padding-top: 1.25rem;"></div>
+          </div>
+
+          <h3 class="app-card-title">Catálogo de Actividades Agrícolas Comunitarias</h3>
+          <div id="grid-agricultura" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Primario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Cultivo Agroecológico de Hortalizas y Maíz Nativo</h4>
+                <p class="tile-desc">Cultivo orgánico bajo sistema de milpa diversificada sin pesticidas sintéticos y con microrriego.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Garantiza la soberanía alimentaria regional y sustenta a 140 familias campesinas.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: INEGI - Censo Agropecuario 2022 (Consulta: 12/Oct/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-ganaderia" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Productivo Primario</div>
+            <h1 class="greeting-title">Ganadería Silvopastoril Regenerativa</h1>
+          </div>
+
+          <div id="gan-error-box" class="status-callout status-callout-deficit" style="display: none;"></div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <h3 class="app-card-title" style="margin-bottom: 1.5rem;">Balance de Producción Pecuaria y Demanda</h3>
+
+            <div class="interactive-two-cols">
+              <div>
+                <div class="field-group">
+                  <label for="gan-input-oferta" class="field-label">Volumen Ofertado de Carne y Lácteos (Unidades):</label>
+                  <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <input type="range" id="gan-slider-oferta" class="pill-slider" min="20" max="250" step="5" value="90">
+                    <input type="number" id="gan-input-oferta" class="field-input" style="width: 100px; font-weight: 800;" value="90">
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="gan-input-demanda" class="field-label">Demanda Requerida por Consumidores (Unidades):</label>
+                  <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <input type="range" id="gan-slider-demanda" class="pill-slider" min="20" max="250" step="5" value="90">
+                    <input type="number" id="gan-input-demanda" class="field-input" style="width: 100px; font-weight: 800;" value="90">
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="gan-input-precio-base" class="field-label">Costo Base de Manejo Pecuario Limpio (MXN/kg):</label>
+                  <input type="number" id="gan-input-precio-base" class="field-input" value="85.00">
+                </div>
+              </div>
+
+              <div>
+                <div id="gan-callout-estado" class="status-callout status-callout-eq">
+                  <span>⚖️</span> Balance Pecuario en Equilibrio
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                  <div style="background: var(--bg-app); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">PRECIO EN VIVO</div>
+                    <div id="gan-precio-mercado" style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest);">$85.00 MXN/kg</div>
+                  </div>
+                  <div style="background: var(--bg-app); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">DIFERENCIA</div>
+                    <div id="gan-brecha-mercado" style="font-size: 1.5rem; font-weight: 800; color: var(--color-forest);">0 cabezas/lote</div>
+                  </div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem;">
+                  <canvas id="gan-canvas-curvas" style="width: 100%; height: 200px;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div id="gan-analisis-texto" style="margin-top: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--color-dark); border-top: 1px solid var(--color-border); padding-top: 1.25rem;"></div>
+          </div>
+
+          <h3 class="app-card-title">Catálogo Pecuario Silvopastoril</h3>
+          <div id="grid-ganaderia" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Primario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Ganadería Silvopastoril Regenerativa</h4>
+                <p class="tile-desc">Pastoreo rotativo en praderas arboladas que captura carbono en el suelo y mejora la fertilidad natural.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Produce carne y lácteos de alta calidad biológica sin propiciar deforestación en la cuenca.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: SADER / INIFAP - Manual de Sistemas Silvopastoriles 2023 (Consulta: 15/Oct/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-comercio" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Terciario y Canales Cortos</div>
+            <h1 class="greeting-title">Comercio Justo vs. Cadenas Globales</h1>
+          </div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <h3 class="app-card-title">Matriz Comparativa de Productos: Fletes, Emisiones y Derrama Local</h3>
+              <select id="com-filtro-origen" class="pill-select" aria-label="Filtrar por origen">
+                <option value="todos">Todos los productos</option>
+                <option value="local">Solo Comercio Local</option>
+                <option value="global">Solo Importaciones Globales</option>
+              </select>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Procedencia</th>
+                    <th>Origen Específico</th>
+                    <th>Precio</th>
+                    <th>Distancia Flete</th>
+                    <th>Emisiones Transporte</th>
+                    <th>Retención Comunitaria</th>
+                    <th>Estatus</th>
+                  </tr>
+                </thead>
+                <tbody id="com-tabla-body"></tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: 1.5rem; background: var(--bg-app); border-radius: var(--radius-md); padding: 1.25rem;">
+              <h4 style="font-size: 1rem; color: var(--color-forest); font-weight: 700; margin-bottom: 0.5rem;">
+                🌱 Criterio Comprobado de Consumo Responsable (IPCC / New Economics Foundation)
+              </h4>
+              <p style="font-size: 0.85rem; color: var(--color-dark); line-height: 1.6;">
+                El transporte carretero convencional emite aproximadamente <strong>0.105 kg CO2 eq por tonelada-kilómetro</strong> transportada (Agencia Europea de Medio Ambiente 2023). Al comprar en redes locales a menos de 50 km, se reduce drásticamente esta huella y se logra que <strong>hasta el 68% del dinero recircule en la misma comunidad</strong>, comparado con apenas un 18% en compras a conglomerados transnacionales.
+              </p>
+            </div>
+          </div>
+
+          <h3 class="app-card-title">Puntos de Comercialización y Cooperativas</h3>
+          <div id="grid-comercio" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Terciario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Red de Cooperativas y Mercados de Comercio Justo</h4>
+                <p class="tile-desc">Puntos de venta directa del productor al consumidor eliminando la especulación de intermediarios.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Retiene el valor monetario en el municipio, garantizando pagos justos y precios accesibles.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: Secretaría de Economía - Registro Nacional de Sociedades Cooperativas 2024 (Consulta: 20/Oct/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-industria" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Productivo Secundario</div>
+            <h1 class="greeting-title">Industria Limpia y Transformación Sustentable</h1>
+          </div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <h3 class="app-card-title" style="margin-bottom: 1rem;">Modelo Industrial Comunitario: Aserradero y Manufactura FSC</h3>
+            <p style="font-size: 0.9rem; color: var(--color-dark); line-height: 1.6; margin-bottom: 1.25rem;">
+              La actividad industrial secundaria procesa los recursos maderables y materias primas mediante secado solar, corte computarizado de alta eficiencia y carpintería artesanal certificada. Agrega valor monetario directo en el municipio y previene la tala ilegal gracias a la administración forestal comunal.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">APORTE AL PIB SECUNDARIO</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-forest);">$10,210.0 mmdp</div>
+                <div style="font-size: 0.75rem; color: var(--color-primary); font-weight: 600;">31.7% del PIB Nacional</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">BALANCE DE TALA NETA</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: #166534;">Cero Neto / Positivo</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Reforestación de 3 árboles por cada extraído</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">EMPLEO TÉCNICO FORMAL</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-accent-orange);">85 empleos directos</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Sueldo digno y prestaciones cooperativas</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="app-card-title">Empresas e Iniciativas Industriales Comunitarias</h3>
+          <div id="grid-industria" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Secundario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Manufactura Forestal y Aserradero Comunitario FSC</h4>
+                <p class="tile-desc">Transformación de madera certificada para muebles y construcción con balance de tala cero neta.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Genera empleos técnicos industriales locales agregando valor a los recursos maderables sustentables.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: CONAFOR - Diagnóstico de Empresas Forestales Comunitarias 2023 (Consulta: 05/Nov/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-servicios" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Productivo Terciario</div>
+            <h1 class="greeting-title">Servicios Ecosistémicos y Ecoturismo</h1>
+          </div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <h3 class="app-card-title" style="margin-bottom: 1rem;">Servicios Ecoturísticos y Conservación Activa</h3>
+            <p style="font-size: 0.9rem; color: var(--color-dark); line-height: 1.6; margin-bottom: 1.25rem;">
+              Los servicios basados en la naturaleza generan ingresos monetarios protegiendo los ecosistemas en lugar de destruirlos. Incluyen senderismo interpretativo, hospedaje con arquitectura bioclimática solar, tratamiento de aguas grises con humedales artificiales y pedagogía ambiental comunitaria.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">APORTE AL PIB TERCIARIO</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-forest);">$20,765.0 mmdp</div>
+                <div style="font-size: 0.75rem; color: var(--color-primary); font-weight: 600;">64.5% del PIB Nacional</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">HUELLA AMBIENTAL TURÍSTICA</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: #166534;">Bajo Impacto</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Energía 100% solar fotovoltaica</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">PROTECCIÓN DE CUENCA</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-forest);">1,200 hectáreas</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Bosque protegido por vigilancia ejidal</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="app-card-title">Iniciativas de Servicios Sustentables</h3>
+          <div id="grid-servicios" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Terciario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Ecoturismo Comunitario y Senderismo Bioclimático</h4>
+                <p class="tile-desc">Guías de naturaleza, hospedaje de bajo impacto en cabañas solares y talleres de educación ambiental.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Crea incentivos económicos directos para que los ejidatarios conserven bosques y ríos.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: SECTUR - Catálogo de Destinos de Naturaleza 2023 (Consulta: 18/Oct/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-artesanal" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Sector Secundario y Patrimonio Biocultural</div>
+            <h1 class="greeting-title">Producción Artesanal Comunitaria</h1>
+          </div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <h3 class="app-card-title" style="margin-bottom: 1rem;">Economía Cultural y Distribución Directa del Ingreso</h3>
+            <p style="font-size: 0.9rem; color: var(--color-dark); line-height: 1.6; margin-bottom: 1.25rem;">
+              La producción artesanal transforma insumos naturales locales (lana virgen, fibras de agave, pigmentos de añil y grana cochinilla) en bienes de alto valor cultural. A diferencia de las maquilas industriales centralizadas, la producción artesanal retiene la totalidad del margen de ganancia en el hogar de las artesanas, impactando directamente en la reducción de la desigualdad económica.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">INSUMOS ORGÁNICOS</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: #166534;">100% Biodegradables</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Sin microplásticos ni químicos sintéticos</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">DISTRIBUCIÓN DEL INGRESO</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-accent-orange);">Directo a Familias</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Empodera a mujeres y preserva saberes</div>
+              </div>
+              <div style="background: var(--bg-app); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; color: var(--color-muted); font-weight: 700;">RECONOCIMIENTO CULTURAL</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-forest);">Patrimonio Vivo</div>
+                <div style="font-size: 0.75rem; color: var(--color-muted);">Certificación de autenticidad biocultural</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="app-card-title">Talleres y Colectivos Artesanales</h3>
+          <div id="grid-artesanal" class="activity-tiles-grid">
+            <div class="activity-tile">
+              <div>
+                <div class="tile-top">
+                  <span class="badge-pill badge-pill-green">Sector Secundario</span>
+                  <span class="badge-pill badge-pill-blue">Dato Real Verificado</span>
+                </div>
+                <h4 class="tile-title">Taller de Textiles con Lana y Tintes Botánicos</h4>
+                <p class="tile-desc">Hilado manual y tinción orgánica con grana cochinilla, añil y palo de brasil.</p>
+                <div class="tile-metric-box">
+                  <strong>Relevancia Comunitaria:</strong><br>
+                  Preserva el patrimonio biocultural y otorga autonomía económica a cooperativas de mujeres artesanas.
+                </div>
+              </div>
+              <div style="font-size: 0.75rem; color: var(--color-subtle); border-top: 1px solid var(--color-border); padding-top: 0.75rem;">
+                Fuente: FONART - Registro Único de Artesanos de México 2024 (Consulta: 24/Oct/2024)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-pib" class="section-view">
+          <div class="greeting-row">
+            <div class="greeting-sub">Cuentas Nacionales y Análisis Social</div>
+            <h1 class="greeting-title">Estructura del PIB vs. Distribución del Ingreso</h1>
+          </div>
+
+          <div id="pib-error-box" class="status-callout status-callout-deficit" style="display: none;"></div>
+
+          <div class="interactive-box" style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+              <h3 class="app-card-title">Cálculo de Participación Sectorial en Tiempo Real</h3>
+              <button type="button" class="btn-sidebar-action" id="pib-btn-cargar-inegi" style="background-color: var(--color-forest);">
+                Cargar Datos Oficiales México (INEGI)
+              </button>
+            </div>
+
+            <div class="interactive-two-cols">
+              <div>
+                <div class="field-group">
+                  <label for="pib-input-primario" class="field-label">Sector Primario (Agricultura, Ganadería, Pesca) en mmdp:</label>
+                  <input type="number" id="pib-input-primario" class="field-input" step="10" value="1225">
+                </div>
+
+                <div class="field-group">
+                  <label for="pib-input-secundario" class="field-label">Sector Secundario (Industria, Manufactura, Artesanía) en mmdp:</label>
+                  <input type="number" id="pib-input-secundario" class="field-input" step="10" value="10210">
+                </div>
+
+                <div class="field-group">
+                  <label for="pib-input-terciario" class="field-label">Sector Terciario (Comercio, Turismo, Servicios) en mmdp:</label>
+                  <input type="number" id="pib-input-terciario" class="field-input" step="10" value="20765">
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Sector</th>
+                        <th>Valor (MXN)</th>
+                        <th>Participación (%)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sector Primario</td>
+                        <td id="pib-val-prim">$1,225.0</td>
+                        <td id="pib-pct-prim" style="font-weight: 700; color: #10b981;">3.80%</td>
+                      </tr>
+                      <tr>
+                        <td>Sector Secundario</td>
+                        <td id="pib-val-sec">$10,210.0</td>
+                        <td id="pib-pct-sec" style="font-weight: 700; color: #f97316;">31.71%</td>
+                      </tr>
+                      <tr>
+                        <td>Sector Terciario</td>
+                        <td id="pib-val-ter">$20,765.0</td>
+                        <td id="pib-pct-ter" style="font-weight: 700; color: #0d3829;">64.49%</td>
+                      </tr>
+                      <tr style="background: #f8fafc; font-weight: 800;">
+                        <td>TOTAL PIB CONSOLIDADO</td>
+                        <td id="pib-val-tot">$32,200.0</td>
+                        <td id="pib-pct-tot">100.00%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="width: 100%; height: 260px;">
+                  <canvas id="pib-canvas-dona" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--color-muted); text-align: center; margin-top: 1rem;">
+                  Fuente de Verificación: INEGI SCNM 2024 • Cálculo automático por código: (Valor/Total) × 100
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; background: var(--bg-app); border-radius: var(--radius-md); padding: 1.5rem;">
+              <h4 style="font-size: 1.05rem; color: var(--color-forest); font-weight: 700; margin-bottom: 0.75rem;">
+                ⚖️ Distinción Conceptual: Participación Sectorial en el PIB vs. Distribución del Ingreso
+              </h4>
+              <p style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.6; margin-bottom: 0.75rem;">
+                <strong>1. Participación Sectorial en el PIB:</strong> Mide el origen productivo del valor monetario total de bienes y servicios generados por una economía en un año. Identifica el peso relativo del campo (primario), las fábricas (secundario) y los servicios (terciario). Es un indicador de <em>capacidad y estructura macroeconómica</em>, pero no indica quién percibe esa ganancia.
+              </p>
+              <p style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.6; margin-bottom: 0.75rem;">
+                <strong>2. Distribución del Ingreso entre la Población:</strong> Mide cómo se reparte realmente el dinero entre los hogares y ciudadanos (analizado por deciles y el <strong>Coeficiente de Gini</strong>, donde 0 es igualdad absoluta y 1 es máxima concentración).
+              </p>
+              <p style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.6;">
+                <strong>3. Enfoque Sustentable:</strong> Una economía puede presentar un PIB elevado impulsado por servicios o manufacturas foráneas y, simultáneamente, exhibir un Gini superior a 0.45 con severa pobreza en las comunidades rurales primarias. El desarrollo sustentable exige que el valor económico se traduzca en equidad social y regeneración ecológica, no únicamente en crecimiento volumétrico del PIB.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <div id="modal-actividad" class="modal-sheet">
+    <div class="modal-dialog">
+      <div class="modal-dialog-header">
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-forest);">Registrar Nueva Actividad Económica</h3>
+        <button type="button" id="btn-cerrar-modal-actividad" style="background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--color-muted);">&times;</button>
+      </div>
+      <form id="form-nueva-actividad">
+        <div class="modal-dialog-body">
+          <div class="field-group">
+            <label for="modal-act-nombre" class="field-label">Nombre de la Actividad Económica:</label>
+            <input type="text" id="modal-act-nombre" class="field-input" placeholder="Ej. Apicultura Comunitaria Orgánica" required>
+          </div>
+
+          <div class="field-group">
+            <label for="modal-act-enfoque" class="field-label">Actividad Enfocada:</label>
+            <select id="modal-act-enfoque" class="field-input" required>
+              <option value="agricultura">Agricultura</option>
+              <option value="ganaderia">Ganadería</option>
+              <option value="comercio">Comercio</option>
+              <option value="industria">Industria</option>
+              <option value="servicios">Servicios</option>
+              <option value="artesanal">Producción artesanal</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="modal-act-desc" class="field-label">Descripción Operativa:</label>
+            <textarea id="modal-act-desc" class="field-input" rows="2" placeholder="Qué proceso productivo o servicio se desarrolla..." required></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="modal-act-imp" class="field-label">Relevancia para la Economía de la Comunidad:</label>
+            <textarea id="modal-act-imp" class="field-input" rows="2" placeholder="Impacto en empleos, soberanía alimentaria y ecología..." required></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="modal-act-fuente" class="field-label">Fuente Documental y Fecha:</label>
+            <input type="text" id="modal-act-fuente" class="field-input" placeholder="Ej. INEGI / Censo Local (Consulta: 25/Oct/2024)" required>
+          </div>
+        </div>
+        <div class="modal-dialog-footer">
+          <button type="button" id="btn-cancelar-modal-actividad" class="btn-card-white" style="border: 1px solid var(--color-border); width: auto;">Cancelar</button>
+          <button type="submit" class="btn-sidebar-action" style="width: auto;">Guardar Actividad</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-box-area" class="toast-box"></div>
+
+  <script src="js/funciones.js"></script>
+</body>
+</html>
